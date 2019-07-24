@@ -3,6 +3,7 @@ package com.example.viewModel;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -21,12 +22,12 @@ public class ConsoleViewModel {
     @NotEmpty(message = "Please enter processor for the console")
     private String processor;
 
-    @NotEmpty(message = "Please supply a Console price")
+    @NotNull(message = "Please supply a Console price")
     @DecimalMin(value = "0.0", inclusive = true)
     @DecimalMax(value = "99999.99", inclusive = true)
     private BigDecimal price;
 
-    @NotEmpty(message = "Please enter console quantity required")
+    @NotNull(message = "Please enter console quantity required")
     private int quantity;
 
     @Override

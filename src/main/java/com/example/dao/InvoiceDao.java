@@ -16,7 +16,8 @@ public interface InvoiceDao {
     void deleteInvoice(int id);
 
     //Defining the additional operations to be performed on Invoice table
-    Invoice getInvoiceByItemType(String itemType);
+    List<Invoice> getInvoiceByItemType(String itemType);
 
-    Invoice getInvoiceByName(String name);
+    List<Invoice> getInvoiceByName(String name);
+
 }

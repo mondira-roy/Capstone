@@ -1,22 +1,41 @@
 package com.example.dao;
 
+
+import com.example.model.SalesTaxRate;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.junit.Assert.*;
-
+import java.util.List;
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest
 public class SalesTaxRateDaoJdbcTemplateImplTest {
+    @Autowired
+    SalesTaxRateDao salesTaxRateDao;
 
+    @Before
+    public void setUp() throws Exception {
+        List<SalesTaxRate> fees = salesTaxRateDao.getAllSalesTaxRates();
+        for (SalesTaxRate s : fees) {
+
+            salesTaxRateDao.deleteSalesTaxRate(s.getState());
+        }
+    }
     @Test
     public void addSalesTaxRate() {
     }
 
     @Test
     public void getSalesTaxRateByState() {
+        SalesTaxRate rate = salesTaxRateDao.getSalesTaxRateByState("");
     }
 
     @Test
     public void getAllSalesTaxRates() {
+        List<SalesTaxRate> taxes = salesTaxRateDao.getAllSalesTaxRates();
     }
 
     @Test
@@ -27,27 +46,4 @@ public class SalesTaxRateDaoJdbcTemplateImplTest {
     public void deleteSalesTaxRate() {
     }
 
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @Test
-    public void addSalesTaxRate1() {
-    }
-
-    @Test
-    public void getSalesTaxRateByState1() {
-    }
-
-    @Test
-    public void getAllSalesTaxRates1() {
-    }
-
-    @Test
-    public void updateSalesTaxRate1() {
-    }
-
-    @Test
-    public void deleteSalesTaxRate1() {
-    }
 }

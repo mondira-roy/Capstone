@@ -20,6 +20,7 @@ public class SalesTaxRate {
     }
 
     public void setRate(BigDecimal rate) {
+
         this.rate = rate;
     }
 
@@ -36,4 +37,6 @@ public class SalesTaxRate {
     public int hashCode() {
         return Objects.hash(getState(), getRate());
     }
+
+
 }

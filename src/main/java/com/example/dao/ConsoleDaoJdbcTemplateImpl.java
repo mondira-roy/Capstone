@@ -31,7 +31,7 @@ public class ConsoleDaoJdbcTemplateImpl implements ConsoleDao {
             "update console set model = ?, manufacturer = ?, memory_amount = ?, processor = ?, price = ?, quantity = ? where console_id = ?";
 
     private static final String DELETE_CONSOLE =
-            "delete from customer where console_id = ?";
+            "delete from console where console_id = ?";
 
     @Autowired
     public ConsoleDaoJdbcTemplateImpl(JdbcTemplate jdbcTemplate) {
@@ -67,9 +67,9 @@ public class ConsoleDaoJdbcTemplateImpl implements ConsoleDao {
         }
     }
     @Override
-    public Console getConsoleByManufacturer(String manufacturer) {
+    public List<Console> getConsoleByManufacturer(String manufacturer) {
         try {
-            return jdbcTemplate.queryForObject(SELECT_CONSOLEBYMANUFACTURER_SQL, this::mapRowToConsole, manufacturer);
+            return jdbcTemplate.query(SELECT_CONSOLEBYMANUFACTURER_SQL, this::mapRowToConsole, manufacturer);
         } catch (EmptyResultDataAccessException e) {
             // if there is no match for this console manufacturer, return null
             return null;

@@ -1,6 +1,5 @@
 package com.example.dao;
 
-import com.example.model.Console;
 import com.example.model.SalesTaxRate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -44,9 +43,9 @@ public class SalesTaxRateDaoJdbcTemplateImpl implements SalesTaxRateDao{
                 salesTaxRate.getRate(),
                 salesTaxRate.getState());
 
-//        int id = jdbcTemplate.queryForObject("select LAST_INSERT_ID()", Integer.class);
-//
-//        salesTaxRate.setConsoleId(id);
+        //String state = jdbcTemplate.queryForObject("select LAST_INSERT_ID()", Integer.class);
+
+        //salesTaxRate.setRate(state);
 
         return salesTaxRate;
     }

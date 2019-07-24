@@ -1,6 +1,5 @@
 package com.example.dao;
 
-import com.example.model.Game;
 import com.example.model.SalesTaxRate;
 
 import java.util.List;

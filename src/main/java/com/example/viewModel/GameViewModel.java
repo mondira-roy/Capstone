@@ -90,17 +90,35 @@ public class GameViewModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GameViewModel that = (GameViewModel) o;
-        return getGameId() == that.getGameId() &&
-                getQuantity() == that.getQuantity() &&
-                getTitle().equals(that.getTitle()) &&
-                getEsrb().equals(that.getEsrb()) &&
-                getDescription().equals(that.getDescription()) &&
-                getStudio().equals(that.getStudio()) &&
-                getPrice().equals(that.getPrice());
+        return gameId == that.gameId &&
+                quantity == that.quantity &&
+                title.equals(that.title) &&
+                esrb.equals(that.esrb) &&
+                description.equals(that.description) &&
+                studio.equals(that.studio) &&
+                price.equals(that.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getGameId(), getTitle(), getEsrb(), getDescription(), getStudio(), getQuantity(), getPrice());
+        return Objects.hash(gameId, title, esrb, description, studio, quantity, price);
     }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        GameViewModel that = (GameViewModel) o;
+//        return getGameId() == that.getGameId() &&
+//                getQuantity() == that.getQuantity() &&
+//                getTitle().equals(that.getTitle()) &&
+//                getEsrb().equals(that.getEsrb()) &&
+//                getDescription().equals(that.getDescription()) &&
+//                getStudio().equals(that.getStudio()) &&
+//                getPrice().equals(that.getPrice());
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(getGameId(), getTitle(), getEsrb(), getDescription(), getStudio(), getQuantity(), getPrice());
+//    }
 }

@@ -1,16 +1,15 @@
 package com.example.dao;
 
-import com.example.model.Game;
 import com.example.model.ProcessingFee;
 
 import java.util.List;
 
 public interface ProcessingFeeDao {
-    ProcessingFee addProcessingFee(ProcessingFee processingFee);
+   ProcessingFee addProcessingFee(ProcessingFee processingFee);
 
-    List<ProcessingFee> getAllProcessingFees();
+   List<ProcessingFee> getAllProcessingFees();
 
-    void updateProcessingFee(ProcessingFee processingFee);
+   void updateProcessingFee(ProcessingFee processingFee);
 
     void deleteProcessingFee(String productType);
 

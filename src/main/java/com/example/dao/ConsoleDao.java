@@ -18,6 +18,6 @@ public interface ConsoleDao {
     void deleteConsole(int id);
 
     //Defining the additional operation to be performed on Console table
-    Console getConsoleByManufacturer(String manufacturer);
+   List<Console> getConsoleByManufacturer(String manufacturer);
 }
 

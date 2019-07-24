@@ -85,18 +85,18 @@ public class InvoiceDaoJdbcTemplateImpl implements InvoiceDao {
         }
     }
     @Override
-    public Invoice getInvoiceByName(String name) {
+    public List<Invoice> getInvoiceByName(String name) {
         try {
-            return jdbcTemplate.queryForObject(SELECT_INVOICE_BY_NAME, this::mapRowToInvoice, name);
+            return jdbcTemplate.query(SELECT_INVOICE_BY_NAME, this::mapRowToInvoice, name);
         } catch (EmptyResultDataAccessException e) {
             // if there is no match for this invoice id, return null
             return null;
         }
     }
     @Override
-    public Invoice getInvoiceByItemType(String itemtype) {
+    public List<Invoice> getInvoiceByItemType(String itemtype) {
         try {
-            return jdbcTemplate.queryForObject(SELECT_INVOICE_BY_ITEMTYPE, this::mapRowToInvoice, itemtype);
+            return jdbcTemplate.query(SELECT_INVOICE_BY_ITEMTYPE, this::mapRowToInvoice, itemtype);
         } catch (EmptyResultDataAccessException e) {
             // if there is no match for this invoice id, return null
             return null;

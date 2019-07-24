@@ -20,9 +20,9 @@ public interface TShirtDao {
 
 //Defining the additional operations to be performed on T-Shirt table
 
-    TShirt getTShirtByColor(String color);
+    List<TShirt> getTShirtByColor(String color);
 
-    TShirt getTShirtBySize(int size);
+    List<TShirt> getTShirtBySize(String size);
 
 
 }

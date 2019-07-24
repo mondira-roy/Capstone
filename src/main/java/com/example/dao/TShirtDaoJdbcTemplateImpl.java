@@ -70,18 +70,18 @@ import java.util.List;
             }
         }
         @Override
-        public TShirt getTShirtByColor(String color) {
+        public List<TShirt> getTShirtByColor(String color) {
             try {
-                return jdbcTemplate.queryForObject(SELECT_TSHIRTBYCOLOR_SQL, this::mapRowToTShirt, color);
+                return jdbcTemplate.query(SELECT_TSHIRTBYCOLOR_SQL, this::mapRowToTShirt, color);
             } catch (EmptyResultDataAccessException e) {
                 // if there is no match for this console manufacturer, return null
                 return null;
             }
         }
         @Override
-        public TShirt getTShirtBySize(int size) {
+        public List<TShirt> getTShirtBySize(String size) {
             try {
-                return jdbcTemplate.queryForObject(SELECT_TSHIRTBYSIZE_SQL, this::mapRowToTShirt, size);
+                return jdbcTemplate.query(SELECT_TSHIRTBYSIZE_SQL, this::mapRowToTShirt, size);
             } catch (EmptyResultDataAccessException e) {
                 // if there is no match for this console manufacturer, return null
                 return null;

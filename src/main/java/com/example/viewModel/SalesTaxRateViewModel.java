@@ -1,13 +1,13 @@
 package com.example.viewModel;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class SalesTaxRateViewModel {
     private String state;
 
-    @NotEmpty(message = "Please enter Tax Rate")
+    @NotNull(message = "Please enter Tax Rate")
     private BigDecimal rate;
 
     public String getState() {

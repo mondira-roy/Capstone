@@ -1,7 +1,6 @@
 package com.example.dao;
 
 import com.example.model.Game;
-import com.example.model.Invoice;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +11,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.math.BigDecimal;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -21,23 +21,11 @@ public class GameDaoJdbcTemplateImplTest {
     GameDao gameDao;
     @Autowired
     InvoiceDao invoiceDao;
-//    @Autowired
-//    SalesTaxRateDao salesTaxRateDao;
-//    @Autowired
-//    ProcessingFeeDao processingFeeDao;
 
 
     @Before
     public void setUp() throws Exception {
-//        List<InvoiceItem> invoiceItems = invoiceItemDao.getAllInvoiceItems();
-//        for (InvoiceItem it : invoiceItems) {
-//            invoiceItemDao.deleteInvoiceItem(it.getId());
-//        }
 
-        List<Invoice> invoices = invoiceDao.getAllInvoices();
-        for (Invoice i : invoices) {
-            invoiceDao.deleteInvoice(i.getInvoiceId());
-        }
 
         List<Game> games = gameDao.getAllGames();
         for (Game game : games) {
@@ -68,9 +56,9 @@ public class GameDaoJdbcTemplateImplTest {
 
 
 
-//    @Test
-//    public void getGame() {
-//    }
+    @Test
+    public void getGame() {
+    }
 
     @Test
     public void getGameByEsrb() {
@@ -114,13 +102,13 @@ public class GameDaoJdbcTemplateImplTest {
         game.setTitle("Game1");
         game.setEsrb("Esrb1");
         game.setDescription("First Game");
-        game.setPrice(BigDecimal.valueOf(24.55));
+        game.setPrice(BigDecimal.valueOf(24.55).setScale(2));
         game.setStudio("Studio1");
         game.setQuantity(1);
 
         game = gameDao.addGame(game);
 
-        game = new Game();
+//        Updated game table
         game.setTitle("Game2");
         game.setEsrb("Esrb2");
         game.setDescription("Second Game");

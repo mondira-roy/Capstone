@@ -63,17 +63,17 @@ public class TShirt {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TShirt tShirt = (TShirt) o;
-        return getTShirtId() == tShirt.getTShirtId() &&
-                getQuantity() == tShirt.getQuantity() &&
-                getSize().equals(tShirt.getSize()) &&
-                getColor().equals(tShirt.getColor()) &&
-                getDescription().equals(tShirt.getDescription()) &&
-                getPrice().equals(tShirt.getPrice());
+        TShirt shirt = (TShirt) o;
+        return tShirtId == shirt.tShirtId &&
+                getQuantity() == shirt.getQuantity() &&
+                getSize().equals(shirt.getSize()) &&
+                getColor().equals(shirt.getColor()) &&
+                getDescription().equals(shirt.getDescription()) &&
+                getPrice().equals(shirt.getPrice());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getTShirtId(), getSize(), getColor(), getDescription(), getQuantity(), getPrice());
+        return Objects.hash(tShirtId, getSize(), getColor(), getDescription(), getQuantity(), getPrice());
     }
 }

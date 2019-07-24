@@ -69,34 +69,34 @@ import java.util.List;
             try {
                 return jdbcTemplate.queryForObject(SELECT_GAME_SQL, this::mapRowToGame, id);
             } catch (EmptyResultDataAccessException e) {
-                // if there is no match for this console id, return null
+                // if there is no match for this game id, return null
                 return null;
             }
         }
         @Override
-        public Game getGameByEsrb(String esrb) {
+        public List<Game> getGameByEsrb(String esrb) {
             try {
-                return jdbcTemplate.queryForObject(SELECT_GAMEBYESRB_SQL, this::mapRowToGame, esrb);
+                return jdbcTemplate.query(SELECT_GAMEBYESRB_SQL, this::mapRowToGame, esrb);
             } catch (EmptyResultDataAccessException e) {
-                // if there is no match for this console manufacturer, return null
+                // if there is no match for this Esrb Rating, return null
                 return null;
             }
         }
      @Override
-     public Game getGameByTitle(String title) {
+     public List<Game> getGameByTitle(String title) {
          try {
-             return jdbcTemplate.queryForObject(SELECT_GAMEBYTITLE_SQL, this::mapRowToGame, title);
+             return jdbcTemplate.query(SELECT_GAMEBYTITLE_SQL, this::mapRowToGame, title);
          } catch (EmptyResultDataAccessException e) {
-             // if there is no match for this console manufacturer, return null
+             // if there is no match for this game title, return null
              return null;
          }
      }
      @Override
-     public Game getGameByStudio(String studio) {
+     public List<Game> getGameByStudio(String studio) {
          try {
-             return jdbcTemplate.queryForObject(SELECT_GAMEBYSTUDIO_SQL, this::mapRowToGame, studio);
+             return jdbcTemplate.query(SELECT_GAMEBYSTUDIO_SQL, this::mapRowToGame, studio);
          } catch (EmptyResultDataAccessException e) {
-             // if there is no match for this console manufacturer, return null
+             // if there is no match for this game studio, return null
              return null;
          }
      }
@@ -135,7 +135,7 @@ import java.util.List;
             game.setGameId(rs.getInt("game_id"));
             game.setTitle(rs.getString("title"));
             game.setEsrb(rs.getString("esrb_rating"));
-            game.setDescription(rs.getString("memory_amount"));
+            game.setDescription(rs.getString("description"));
             game.setPrice(rs.getBigDecimal("price"));
             game.setStudio(rs.getString("studio"));
             game.setQuantity(rs.getInt("quantity"));

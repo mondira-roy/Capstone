@@ -31,17 +31,17 @@ public class TShirtViewModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TShirtViewModel that = (TShirtViewModel) o;
-        return gettShirtId() == that.gettShirtId() &&
-                getQuantity() == that.getQuantity() &&
-                getSize().equals(that.getSize()) &&
-                getColor().equals(that.getColor()) &&
-                getDescription().equals(that.getDescription()) &&
-                getPrice().equals(that.getPrice());
+        return tShirtId == that.tShirtId &&
+                quantity == that.quantity &&
+                size.equals(that.size) &&
+                color.equals(that.color) &&
+                description.equals(that.description) &&
+                price.equals(that.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(gettShirtId(), getSize(), getColor(), getDescription(), getQuantity(), getPrice());
+        return Objects.hash(tShirtId, size, color, description, quantity, price);
     }
 
     public int gettShirtId() {

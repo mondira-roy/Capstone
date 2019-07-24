@@ -1,7 +1,6 @@
 package com.example.dao;
 
 import com.example.model.ProcessingFee;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -70,15 +69,15 @@ public class ProcessingFeeDaoJdbcTemplateImpl implements ProcessingFeeDao {
                 processingFee.getProductType(),
                 processingFee.getFee()
         );
-
     }
 
     @Override
-    @Transactional
     public void deleteProcessingFee(String productType) {
+
 
         jdbcTemplate.update(DELETE_PROCESSING_FEE, productType);
     }
+
 
     private ProcessingFee mapRowToProcessingFee(ResultSet rs, int rowNum) throws SQLException {
         ProcessingFee processingFee = new ProcessingFee();
@@ -88,7 +87,8 @@ public class ProcessingFeeDaoJdbcTemplateImpl implements ProcessingFeeDao {
 
         return processingFee;
     }
-
-
-
 }
+
+
+
+
